@@ -4,6 +4,7 @@ const cors = require("cors");
 // initialize express app
 const app = express();
 app.use(cors());
+app.use(express.static("dist"));
 
 // json parser
 app.use(express.json());
@@ -32,10 +33,6 @@ const generateId = () => {
 
   return String(maxId + 1);
 };
-
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World</h1>");
-});
 
 // get all notes
 app.get("/api/notes", (req, res) => {
